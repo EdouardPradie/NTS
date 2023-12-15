@@ -1,0 +1,34 @@
+Objectif :
+
+_ Simuler le comportement d'un circuit électrique (circuit intégré)
+_ Creer un programme proposant plusieurs circuit intégré, c'est le choix du fichiers passé en paramètres de l'éxécution du programme qui le définit
+_ L'utilisateur, grâce à Getline, interagit avec le programme. De base la valeur des inputs sont défini à "Undefined"
+_ L'utilisateur peut entrer des commandes tel que : Simulate, Display, loop, exit
+    avec display -> affiche l'état d'entrée des Inputs, l'état des Outputs et le nombre de changements d'états (Tick)
+    avec input = value -> change l'état Undefined à la value entrée
+
+
+Structure :
+
+On doit baser notre implementation autour du namespace nts donné dans le sujet.
+Plusieurs partie sont à faire :
+    Gestion d'erreurs (appel de fonction, contenu du fichier en paramètre),
+    Parser le fichier (noms des inputs, gate qui correspond au circuit intégré),
+    Gérer la partie Getline avec le mot clé Exit pour quitter le programme
+    programmer les différents circuits intégré,
+    en fonction des inputs que l'utilisateur entre, simuler en temps réel l'état du circuit.
+    Gestion des clock et les changements d'état lorsque l'utilisateur entre 'Simulate' (les inputs précédents deviennent effectifs)
+    Display (grace à des méthodes Get) : affiche l'état d'entrée des Inputs, l'état des Outputs et le nombre de changements d'états (Tick = nombre de 'Simulate')
+
+
+Execution :
+
+La fonction main commence par créer les Structure, elle lit le fichier et cherche le circuit intégré correspondant, puis lance Getline.
+
+
+Constitution des .hpp :
+    CommandLine -> Gère le prompt et les commandes bultins
+    Components -> Gère les Inputs (true, false, input, clock), les gate (circuits intégrés), et l'Outputs (display)
+    Exception -> Gère les différentes erreurs que l'on peut rencontrer (parsing, arguments, components inconnus)
+    Parser -> Gère la récupération d'informations via le fichier et les transforme en liste chainées ?
+    Simulation -> Gère l'éxecution en arrière plan du programme
